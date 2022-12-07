@@ -1,0 +1,40 @@
+.sort-visualizer {
+  display: flex;
+  flex-direction: column;
+}
+
+.array-container {
+  height: 100%;
+  padding: 0;
+  margin-bottom: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.array-bar {
+  width: 2px;
+  background-color: rgb(0, 255, 255);
+  margin: 0 1px;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btn {
+  padding: 5px;
+  border-radius: 5px;
+  border: none;
+  background-color: aqua;
+  margin: 20px 5px;
+  cursor: pointer;
+  transition: background-color .5s;  
+}
+
+.btn:hover {
+  background-color: rgb(0, 255, 255, 0.5);
+}
