@@ -18,19 +18,13 @@ export default class SortingVisualizer extends React.Component {
   resetArray(){
     const array = []
 
-    for (let i = 0; i < 10; i++){
+    for (let i = 0; i < 300; i++){
       array.push(randomIntFromInterval(5, 1000))
     }
     this.setState({array})
   }
 
   mergeSort(){
-    const javaScriptSortedArray = this.state.array
-      .slice()
-      .sort((a, b) => a - b);
-    const sortedArray = mergeSort(this.state.array)
-
-    console.log(arraysAreEqual(javaScriptSortedArray, sortedArray))
 
   }
 
@@ -39,6 +33,22 @@ export default class SortingVisualizer extends React.Component {
   heapSort(){}
 
   bubbleSort(){}
+
+  testSortingAlgorithms(){
+    for(let i = 0; i < 100; i++){
+      const array = []
+      const length = randomIntFromInterval(1, 1000)
+      for( let i = 0; i < length; i++){
+        array.push(randomIntFromInterval(-1000, 1000))
+      }
+      const javaScriptSortedArray = array
+      .slice()
+      .sort((a, b) => a - b);
+
+      const mergeSortedArray = mergeSort(array.slice())
+      console.log(arraysAreEqual(javaScriptSortedArray, mergeSortedArray))
+    }
+  }
 
   render(){
     const {array} = this.state
@@ -51,6 +61,7 @@ export default class SortingVisualizer extends React.Component {
           <button className='btn' onClick={()=>this.quickSort()}>Quick Sort</button>
           <button className='btn' onClick={()=>this.heapSort()}>Heap Sort</button>
           <button className='btn' onClick={()=>this.bubbleSort()}>Bubble Sort</button>
+          <button className='btn' onClick={()=>this.testSortingAlgorithms()}>Test Sorting Algorithms</button>
         </div>
         
         <div className='array-container'>
