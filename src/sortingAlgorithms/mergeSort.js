@@ -58,46 +58,77 @@ function doMerge(
   let i = startIdx;
   let j = middleIdx + 1;
   while (i <= middleIdx && j <= endIdx) {
-    // These are the values that we're comparing; we push them once
-    // to change their color.
-    animations.push([i, j]);
-    // These are the values that we're comparing; we push them a second
-    // time to revert their color.
-    animations.push([i, j]);
+    animations.push({
+      "barOneIdx": i,
+      "barOneVal": auxiliaryArray[i],
+      "barTwoIdx": j,
+      "barTwoVal": auxiliaryArray[j],
+      "swap": false
+    })
+
     if (auxiliaryArray[i] <= auxiliaryArray[j]) {
       // We overwrite the value at index k in the original array with the
       // value at index i in the auxiliary array.
-      animations.push([k, auxiliaryArray[i]]);
+      animations.push({
+        "barOneIdx": k,
+        "barOneVal": auxiliaryArray[i],
+        "barTwoIdx": k,
+        "barTwoVal": auxiliaryArray[i],
+        "swap": true
+      })
+
       mainArray[k++] = auxiliaryArray[i++];
     } else {
       // We overwrite the value at index k in the original array with the
       // value at index j in the auxiliary array.
-      animations.push([k, auxiliaryArray[j]]);
+      animations.push({
+        "barOneIdx": k,
+        "barOneVal": auxiliaryArray[j],
+        "barTwoIdx": k,
+        "barTwoVal": auxiliaryArray[j],
+        "swap": true
+      })
+
       mainArray[k++] = auxiliaryArray[j++];
     }
   }
   while (i <= middleIdx) {
-    // These are the values that we're comparing; we push them once
-    // to change their color.
-    animations.push([i, i]);
-    // These are the values that we're comparing; we push them a second
-    // time to revert their color.
-    animations.push([i, i]);
+
+    animations.push({
+      "barOneIdx": i,
+      "barOneVal": auxiliaryArray[i],
+      "barTwoIdx": i,
+      "barTwoVal": auxiliaryArray[i],
+      "swap": false
+    })
     // We overwrite the value at index k in the original array with the
     // value at index i in the auxiliary array.
-    animations.push([k, auxiliaryArray[i]]);
+    animations.push({
+      "barOneIdx": k,
+      "barOneVal": auxiliaryArray[i],
+      "barTwoIdx": k,
+      "barTwoVal": auxiliaryArray[i],
+      "swap": true
+    })
     mainArray[k++] = auxiliaryArray[i++];
   }
   while (j <= endIdx) {
-    // These are the values that we're comparing; we push them once
-    // to change their color.
-    animations.push([j, j]);
-    // These are the values that we're comparing; we push them a second
-    // time to revert their color.
-    animations.push([j, j]);
+    animations.push({
+      "barOneIdx": j,
+      "barOneVal": auxiliaryArray[j],
+      "barTwoIdx": j,
+      "barTwoVal": auxiliaryArray[j],
+      "swap": false
+    })
     // We overwrite the value at index k in the original array with the
     // value at index j in the auxiliary array.
-    animations.push([k, auxiliaryArray[j]]);
+    animations.push({
+      "barOneIdx": k,
+      "barOneVal": auxiliaryArray[j],
+      "barTwoIdx": k,
+      "barTwoVal": auxiliaryArray[j],
+      "swap": true
+    })
     mainArray[k++] = auxiliaryArray[j++];
   }
 }

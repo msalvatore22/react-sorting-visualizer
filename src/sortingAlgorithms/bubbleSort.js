@@ -14,12 +14,23 @@ export const bubbeSort = (arr, len, animations) => {
     for(var j = 0; j < ( len - i - 1 ); j++){
       // Checking if the item at present iteration
       // is greater than the next iteration
-
-      animations.push([[[j, arr[j]], [j+1, arr[j+1]]], false])
+      animations.push({
+        "barOneIdx": j,
+        "barOneVal": arr[j],
+        "barTwoIdx": j+1,
+        "barTwoVal": arr[j+1],
+        "swap": false
+      })
       if(arr[j] > arr[j+1]){
         
         // If the condition is true then swap them
-        animations.push([[[j, arr[j+1]], [j+1, arr[j]]], true])
+        animations.push({
+          "barOneIdx": j,
+          "barOneVal": arr[j+1],
+          "barTwoIdx": j+1,
+          "barTwoVal": arr[j],
+          "swap": true
+        })
         var temp = arr[j]
         arr[j] = arr[j + 1]
         arr[j+1] = temp
