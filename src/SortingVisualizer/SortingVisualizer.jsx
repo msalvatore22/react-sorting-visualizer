@@ -29,7 +29,7 @@ export default function SortingVisualizer() {
     if(isSorting) return
     const array = []
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++){
-      array.push(randomIntFromInterval(5, 540))
+      array.push(randomIntFromInterval(5, 480))
     }
     setArr(array)
     resetArrayColor()
