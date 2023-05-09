@@ -4,19 +4,19 @@
 }
 
 .array-container {
-  height: 85vh;
+  height: 100%;
   padding: 0;
-  margin-bottom: 0;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   flex-direction: row;
+  margin-top: 50px;
 }
 
 .array-bar {
-  width: 10px;
+  width: 5px;
   background-color: rgb(0, 255, 255);
-  margin: 0 1px;
+  margin: 0px 1px;
 }
 
 .btn-group {

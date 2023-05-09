@@ -7,7 +7,7 @@ import { getBubbleSortAnimations } from '../sortingAlgorithms/bubbleSort';
 const ANIMATION_SPEED_MS = 10;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 40;
+const NUMBER_OF_ARRAY_BARS = 100;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = 'aqua';
@@ -29,7 +29,7 @@ export default function SortingVisualizer() {
     if(isSorting) return
     const array = []
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++){
-      array.push(randomIntFromInterval(5, 680))
+      array.push(randomIntFromInterval(5, 540))
     }
     setArr(array)
     resetArrayColor()
